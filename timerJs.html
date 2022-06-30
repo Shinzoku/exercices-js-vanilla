@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-chrono.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="chrono">
+        <div id="mins"></div>
+        <div id="secs"></div>
+    </div>
+    <button onclick="setInterval(startCount, 1000)">chrono</button>
+</body>
+
+<script>
+    let seconds = 0;
+    let minutes = -1;
+
+    function startCount() {
+        if (seconds % 60 === 0) {
+            seconds = 0;
+            minutes++;
+        }
+
+        document.getElementById('secs').innerHTML = seconds;
+        document.getElementById('mins').innerHTML = minutes + " : ";
+
+        seconds++;
+    }
+</script>
+
+<!-- <script>
+    const departMinutes = 5
+    let temps = departMinutes * 60
+
+    function diminuerTemps() {
+        let minutes = parseInt(temps / 60, 10);
+        let secondes = parseInt(temps % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        secondes = secondes < 10 ? "0" + secondes : secondes;
+
+        document.getElementById("mins").innerText = minutes + " : ";
+        document.getElementById("secs").innerText = secondes;
+
+        temps = temps <= 0 ? 0 : temps - 1
+    }
+
+    setInterval(diminuerTemps, 2000);
+</script> -->
+
+</html>
